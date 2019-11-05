@@ -145,7 +145,7 @@ if ( ! function_exists( 'understrap_widgets_init' ) ) {
 
 		register_sidebar(
 			array(
-				'name'          => __( 'Top Full', 'understrap' ),
+				'name'          => __( 'Static Hero', 'understrap' ),
 				'id'            => 'statichero',
 				'description'   => __( 'Full top widget with dynamic grid', 'understrap' ),
 				'before_widget' => '<div id="%1$s" class="footer-widget %2$s dynamic-classes">',
