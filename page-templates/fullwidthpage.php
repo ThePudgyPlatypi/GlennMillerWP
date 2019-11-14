@@ -29,18 +29,75 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 				<main class="site-main" id="main" role="main">
 
-					<?php while ( have_posts() ) : the_post(); ?>
+					<?php 
+					
+					if ( !is_front_page() ) {
+						while ( have_posts() ) : the_post(); 
 
-						<?php get_template_part( 'loop-templates/content', 'page' ); ?>
+						get_template_part( 'loop-templates/content', 'page' ); 
 
-						<?php
+					
 						// If comments are open or we have at least one comment, load up the comment template.
 						if ( comments_open() || get_comments_number() ) :
 							comments_template();
 						endif;
-						?>
+					
 
-					<?php endwhile; // end of the loop. ?>
+						endwhile; // end of the loop.
+					} else {
+						// The body content of the home page
+
+						// this grabs the first key value from current page
+						// then use that to filter out, by matching key, on the custom post type contents
+						// to use set the first custom field key and value to the exact values of the custom fields of your custom posts
+						global $wp_query;
+						$page_meta = get_the_title();
+						wp_reset_query();
+
+						if(!$page_meta) {
+							$page_meta="no_posts";
+						}
+						// print_r($page_meta);
+						// print_r(get_post_meta($postid));
+						// echo get_the_title();
+
+						$body = array(
+							'post_type' 		=> 'contents',
+							'nopaging' 			=> true,
+							'order' 			=> 'ASC',
+							'meta_query' 		=> array(
+								'relation'			=> 'AND',
+								'order'				=> array(
+									'key'				=> 'order',
+									'compare'			=> 'EXISTS',
+								), 
+								'page' 				=> array(
+									'value' 			=> $page_meta,
+									'compare' 			=> 'EXISTS',
+								)
+							),
+							'orderby' 			=> array(
+								'order'				=> 'ASC'
+							),
+						);
+
+						$the_query = new WP_Query($body);
+
+							// The Loop
+							if ( $the_query->have_posts() ) {
+								while ( $the_query->have_posts() ) {
+
+									$the_query->the_post();
+								
+									the_content();
+									edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); 
+							}
+								/* Restore original Post Data */
+								wp_reset_postdata();
+							} else {
+								// no posts found
+							}
+					} ?>
 
 				</main><!-- #main -->
 
