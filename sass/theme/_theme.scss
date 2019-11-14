@@ -6,4 +6,26 @@ html, body {
 
 body {
     background-color: $primary-base;
+    color: $gray-100;
+    font-size: 1.2rem;
+}
+
+h1, h2, h3,h4, h5, h6 {
+    font-family: $font-family-serif;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    width: 50%;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
+
+    &:before {
+        content: "";
+        @include triangle(down, $white, 5px, $equal: true);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: -2.5px;
+    }
 }

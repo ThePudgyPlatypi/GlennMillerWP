@@ -9,3 +9,9 @@
     z-index: 10;
 }
 
+.img-fluid {
+    display: none;
+    @include media-breakpoint-up(md) {
+        display: inline;
+    }
+}

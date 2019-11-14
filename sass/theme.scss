@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel|Raleway&display=swap');
 @import "theme/colors"; 
 @import "theme/theme_variables";  // <-------- Add your variables into this file. Also add variables to overwrite Bootstrap or UnderStrap variables here
 @import "assets/bootstrap4";      // <-------- Loads Bootstrap4
@@ -9,6 +10,7 @@
 @import "assets/underscores";     // <-------- Underscores media styles
 
 // Any additional imported files //
+@import "theme/components";
 @import "theme/theme";            // <-------- That's where you can add your own design. Thats your part!
 @import "theme/contact-form7";    // <-------- Contact Form 7 - Bootstrap 4 support
 @import "theme/header";

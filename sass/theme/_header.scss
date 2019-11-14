@@ -1,12 +1,117 @@
 // Static hero
 #wrapper-hero {
-    height: 50vh;
+    height: 70vh;
 }
 
 #wrapper-static-hero {
     padding: 0;
+    position: relative;
     width: 100%;
     height: 100%;
+    border-bottom: 8px solid $secondary;
+
+    &::before {
+        content: "";
+        height: 8px;
+        bottom: 0;
+        width: 100%;
+        position: absolute;
+        border-bottom: 8px solid $secondary-accent;
+        z-index: 2;
+    }
+
+    &::after {
+        content: "";
+        @include triangle(down, $secondary, 40px, $equal: true);
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: -20px;
+        z-index: 2;
+    }
+
+    .row {
+        position: relative;
+
+        #webpage-information {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            color: $white;
+
+            h1.site-title {
+                font-size: 3rem;
+                color: $secondary;
+            }
+
+            span.site-tagline {
+                font-size: 1.75rem;
+                // margin-bottom: 30px;
+            }
+
+            address.bp-contact-card {
+                display: flex;
+                font-size: 1.25rem;
+                margin-top: -1rem;;
+
+                .bp-phone::before {
+                    display: none;
+                }
+
+                a {
+                    color: $white;
+                    text-decoration: underline;
+                }
+            }   
+
+            .btn a {
+                color: $secondary;
+
+                &:hover {
+                    color: $primary;
+                    text-decoration: none;
+                }
+            }
+        }
+
+        #hero-wrapper {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+
+            &:before {
+                content: "";
+                background-image: url('./../images/pixel-pattern.png');
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                opacity: 0.3;
+            }
+
+            &:after {
+                content: "";
+                /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffc03b+0,3e3e3e+35,3e3e3e+35,05307a+100 */
+                background: #ffc03b; /* Old browsers */
+                background: -moz-linear-gradient(-45deg,  #ffc03b 0%, #3e3e3e 35%, #3e3e3e 35%, #05307a 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(-45deg,  #ffc03b 0%,#3e3e3e 35%,#3e3e3e 35%,#05307a 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(135deg,  #ffc03b 0%,#3e3e3e 35%,#3e3e3e 35%,#05307a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc03b', endColorstr='#05307a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+                display: block;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                opacity: 0.15;
+            }
+        }
+    }
 }
 
 #wrapper-static-content {

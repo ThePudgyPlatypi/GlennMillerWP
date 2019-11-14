@@ -4,3 +4,18 @@
 
 
 $primary: $primary-base; // Thats a sample how you could change a BootStrap variable.
+$secondary:     $primary-accent !default;
+// $success:       $green !default;
+// $info:          $cyan !default;
+// $warning:       $yellow !default;
+// $danger:        $red !default;
+// $light:         $gray-100 !default;
+// $dark:          $gray-800 !default;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// stylelint-disable value-keyword-case
+$font-family-serif:      'Cinzel', serif;
+$font-family-base:            'Raleway', sans-serif;

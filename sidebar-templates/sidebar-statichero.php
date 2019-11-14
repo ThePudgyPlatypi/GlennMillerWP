@@ -21,7 +21,28 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 				<div class="row">
 
-					<?php dynamic_sidebar( 'statichero' ); ?>
+					<!-- exceptions to add name and other fun stuff to front page -->
+					<!-- Could add another meta check to see if a page wants the header info -->
+					<?php if ( is_front_page() ) { ?>
+						<div id="webpage-information">
+							<?php echo "<h1 class='site-title'>".get_bloginfo()."</h1>"; ?>
+							<hr>
+							<?php echo "<span class='site-tagline'>".get_bloginfo( 'description' )."</span>";
+							echo do_shortcode( "[contact-card show_name=0 show_address=0 show_get_directions=0 show_phone=1 show_contact=0 show_opening_hours=0 show_map=0]" ); ?>
+							<button type="button" class="btn btn-outline-secondary">
+								<a href="#contact">
+									Let's Talk
+								</a>
+							</button>
+						</div>
+						<div id='hero-wrapper'>
+					<?php } ?>
+
+						<?php dynamic_sidebar( 'statichero' ); ?>
+					
+					<?php if ( is_front_page() ) { ?>
+						</div>
+					<?php } ?>
 
 				</div>
 
