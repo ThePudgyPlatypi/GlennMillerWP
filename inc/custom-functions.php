@@ -7,6 +7,7 @@ function set_custom_edit_contents_columns($columns) {
     unset( $columns['comments'] );
     $columns['order'] = __( 'Order', 'Glenn_Miller_Associates' );
     $columns['page'] = __( 'Page', 'Glenn_Miller_Associates' );
+    $columns['template'] = __( 'Template', 'Glenn_Miller_Associates' );
 
     return $columns;
 }
@@ -20,5 +21,9 @@ function custom_contents_column( $column, $post_id ) {
 
     if ( 'page' === $column ) {
         echo get_post_meta( $post_id , 'page' , true );
+    }
+
+    if ( 'template' === $column ) {
+        echo get_post_meta( $post_id , 'template' , true );
     }
 }

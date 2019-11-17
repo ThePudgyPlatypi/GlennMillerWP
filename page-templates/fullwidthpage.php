@@ -20,46 +20,46 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 
 <div class="wrapper" id="full-width-page-wrapper">
-
 	<div class="<?php echo esc_attr( $container ); ?>" id="content">
-
-		<div class="row">
-
-			<div class="col-md-12 content-area" id="primary">
-
-				<main class="site-main" id="main" role="main">
-
-					<?php 
+				<?php 
+				// this would be any content that is not on the static home page
 					
 					if ( !is_front_page() ) {
-						while ( have_posts() ) : the_post(); 
+						while ( have_posts() ) : the_post(); ?>
 
-						get_template_part( 'loop-templates/content', 'page' ); 
+						<div class="row">
+							<div class="col-md-12 content-area" id="primary">
+								<main class="site-main" id="main" role="main">
+
+									<?php get_template_part( 'loop-templates/content', 'page' ); ?>
+
+								</main><!-- #main -->
+							</div><!-- #primary -->
+						</div><!-- .row end -->
 
 					
-						// If comments are open or we have at least one comment, load up the comment template.
-						if ( comments_open() || get_comments_number() ) :
-							comments_template();
-						endif;
-					
+							<?php // If comments are open or we have at least one comment, load up the comment template.
+							if ( comments_open() || get_comments_number() ) :
+								comments_template();
+							endif;
 
 						endwhile; // end of the loop.
+
 					} else {
 						// The body content of the home page
+						// Grabs posts based off of their meta page tag and then orders them by the order tag
+						// Also will style the content based off of meta templates
 
-						// this grabs the first key value from current page
-						// then use that to filter out, by matching key, on the custom post type contents
-						// to use set the first custom field key and value to the exact values of the custom fields of your custom posts
 						global $wp_query;
+						
 						$page_meta = get_the_title();
+
 						wp_reset_query();
+
 
 						if(!$page_meta) {
 							$page_meta="no_posts";
 						}
-						// print_r($page_meta);
-						// print_r(get_post_meta($postid));
-						// echo get_the_title();
 
 						$body = array(
 							'post_type' 		=> 'contents',
@@ -87,11 +87,14 @@ $container = get_theme_mod( 'understrap_container_type' );
 							if ( $the_query->have_posts() ) {
 								while ( $the_query->have_posts() ) {
 
-									$the_query->the_post();
-								
-									the_content();
-									edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); 
-							}
+									$the_query->the_post(); 
+									$meta_template = get_post_meta( get_the_ID(), 'template', true);
+		
+									?>
+
+									<?php get_template_part( 'content-templates/template', $meta_template ) ?>
+
+							<?php }
 								/* Restore original Post Data */
 								wp_reset_postdata();
 							} else {
@@ -99,11 +102,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 							}
 					} ?>
 
-				</main><!-- #main -->
-
-			</div><!-- #primary -->
-
-		</div><!-- .row end -->
+				
 
 	</div><!-- #content -->
 
