@@ -36,9 +36,9 @@ if ( ! function_exists( 'understrap_add_site_info' ) ) {
 			),
 			sprintf( // WPCS: XSS ok.
 				/* translators:*/
-				esc_html__( 'Theme: %1$s by %2$s.', 'understrap' ),
+				esc_html__( 'Theme: %1$s by %2$s.', 'Chris Stehm' ),
 				$the_theme->get( 'Name' ),
-				'<a href="' . esc_url( __( 'http://understrap.com', 'understrap' ) ) . '">understrap.com</a>'
+				'<a href="' . esc_url( __( 'https://www.chrisstehm.com', 'understrap' ) ) . '">chrisstehm.com</a>'
 			),
 			sprintf( // WPCS: XSS ok.
 				/* translators:*/

@@ -57,9 +57,66 @@ hr {
             object-fit: cover;
             object-position: center;
         }
+
+        .image-excerpt {
+            position: absolute;
+            text-align: right;
+            
+            right: 0;
+            bottom: 0;
+            font-size: 2rem;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            z-index: 3;
+            width: 40%;
+            margin: 0 50px 50px 0;
+            padding: 0 10px 0 10px;
+            line-height: 2.6rem;
+
+            // styling excerpt
+            p:first-child {
+                display: inline;
+                background-color: white;
+                color: $primary;
+                hyphens: none;
+            }
+
+            p:last-child {
+                display: none;
+            }
+        }
+        
     }
 }
 
 .text-block {
+    height: 25vh;
 
+    .content-area {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+}
+
+// Card Grids
+
+.card-grid {
+    .content-area {
+        
+    }
+}
+
+.values-grid {
+    // width: 80%;
+}
+
+.services-grid {
+
+}
+
+.card {
+    .card-body {
+        color: $primary;
+    }
 }

@@ -8,6 +8,7 @@ function set_custom_edit_contents_columns($columns) {
     $columns['order'] = __( 'Order', 'Glenn_Miller_Associates' );
     $columns['page'] = __( 'Page', 'Glenn_Miller_Associates' );
     $columns['template'] = __( 'Template', 'Glenn_Miller_Associates' );
+    $columns['card'] = __( 'Card Grid', 'Glenn_Miller_Associates' );
 
     return $columns;
 }
@@ -16,14 +17,36 @@ function set_custom_edit_contents_columns($columns) {
 add_action( 'manage_contents_posts_custom_column' , 'custom_contents_column', 10, 2 );
 function custom_contents_column( $column, $post_id ) {
     if ( 'order' === $column ) {
-        echo get_post_meta( $post_id , 'order' , true );
+        post_meta_default_column_value('order', $post_id);
     }
 
     if ( 'page' === $column ) {
-        echo get_post_meta( $post_id , 'page' , true );
+        post_meta_default_column_value('page', $post_id);
     }
 
     if ( 'template' === $column ) {
-        echo get_post_meta( $post_id , 'template' , true );
+        post_meta_default_column_value('template', $post_id);
+    }
+
+    if ( 'card' === $column ) {
+        post_meta_default_column_value('card', $post_id);
     }
 }
+
+function post_meta_default_column_value($value, $post_id) {
+    $x = get_post_meta( $post_id , $value , true );
+        if ($x == '') {
+            echo 'x';
+        } else {
+            echo $x;
+        }
+}
+
+
+/**
+ * Change the excerpt more string
+ */
+function my_theme_excerpt_more( $more ) {
+    return '';
+}
+add_filter( 'excerpt_more', 'my_theme_excerpt_more' );

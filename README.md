@@ -1,6 +1,7 @@
-## Custom Work
+# Custom Work
 
 Custom post type "Contents" is created that takes three meta fields
+    Add Category according to Page - So Home page only shows Home_Content, about only shows About_Content
     Page should be filled out - this needs to match the title of the page that you wish the post to be on
     Order is relatively self explanatory
     Template should match on of the following and will change how the block is styled:
@@ -13,8 +14,6 @@ Custom post type "Contents" is created that takes three meta fields
         - text-block
         - image-description-left and image-description-right
 
-
-Travis build: [![Build Status](https://travis-ci.org/understrap/understrap.svg?branch=master)](https://travis-ci.org/understrap/understrap)
 
 #### See: [Official Demo](https://understrap.com/understrap) | Read: [Official Docs Page](https://understrap.github.io/)
 
