@@ -38,3 +38,28 @@ hr {
 .edit-link a {
     color: white;
 }
+
+// Template blocks
+.full-width-image {
+    width: 100%;
+    height: 50vh;
+    @include bottom-border;
+
+    .content-area {
+        width: 100%;
+        height: calc(50vh - 8px);
+        position: relative;
+        @include pixel-overlay();
+       
+        img {
+            width: 100%;
+            height: calc(50vh - 8px);
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+}
+
+.text-block {
+
+}

@@ -1,17 +1,18 @@
-<div id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
+<div class="<?php echo esc_attr( $container ); ?>" id="content">
+    <div id="post-<?php the_ID(); ?>" <?php post_class('row text-block'); ?>>
 
-    <div class="content-area" id="primary">
+        <div class="content-area" id="primary">
 
-        <main class="site-main" id="main" role="main">
+            <main class="site-main" id="main" role="main">
 
-            <?php 
-            the_post_thumbnail();
-            the_content();
-            edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); 
-            ?>
+                <?php 
+                    the_content();
+                    edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); 
+                ?>
 
-        </main><!-- #main -->
+            </main><!-- #main -->
 
-    </div><!-- #primary -->
+        </div><!-- #primary -->
 
-</div><!-- .row end -->
+    </div><!-- .row end -->
+</div>

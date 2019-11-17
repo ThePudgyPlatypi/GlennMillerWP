@@ -6,6 +6,8 @@ Custom post type "Contents" is created that takes three meta fields
     Template should match on of the following and will change how the block is styled:
         - full-width-content
         - full-width-image
+            - adds the blue and yellow line to the bottom as well as the overlay
+            - use the excerpt to add a quote 
         - card-grid
             - This block should have correspondening card tagged blocks
         - text-block

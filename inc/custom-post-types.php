@@ -28,7 +28,7 @@ function custom_post_type_content() {
         'description'         => __( 'Content of the website', 'Glenn_Miller_Associates' ),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'taxonomies', 'post-formats'),
+        'supports'            => array( 'title', 'excerpt', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'taxonomies', 'post-formats'),
         // You can associate this CPT with a taxonomy or custom taxonomy. 
         'taxonomies'          => array( 'page_content', 'category' ),
         /* A hierarchical CPT is like Pages and can have

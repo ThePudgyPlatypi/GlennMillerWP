@@ -12,6 +12,8 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 $container = get_theme_mod( 'understrap_container_type' );
+set_query_var( 'container', $container );
+
 ?>
 
 <?php if ( is_front_page() ) : ?>
@@ -20,22 +22,24 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 
 <div class="wrapper" id="full-width-page-wrapper">
-	<div class="<?php echo esc_attr( $container ); ?>" id="content">
 				<?php 
 				// this would be any content that is not on the static home page
 					
 					if ( !is_front_page() ) {
 						while ( have_posts() ) : the_post(); ?>
+							<div class="<?php echo esc_attr( $container ); ?>" id="content">
+								<div class="row">
+									<div class="col-md-12 content-area" id="primary">
+										<main class="site-main" id="main" role="main">
 
-						<div class="row">
-							<div class="col-md-12 content-area" id="primary">
-								<main class="site-main" id="main" role="main">
+											<?php
+												get_template_part( 'loop-templates/content', 'page' ); 
+											?>
 
-									<?php get_template_part( 'loop-templates/content', 'page' ); ?>
-
-								</main><!-- #main -->
-							</div><!-- #primary -->
-						</div><!-- .row end -->
+										</main><!-- #main -->
+									</div><!-- #primary -->
+								</div><!-- .row end -->
+							</div><!-- container end -->
 
 					
 							<?php // If comments are open or we have at least one comment, load up the comment template.
@@ -87,9 +91,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 							if ( $the_query->have_posts() ) {
 								while ( $the_query->have_posts() ) {
 
-									$the_query->the_post(); 
-									$meta_template = get_post_meta( get_the_ID(), 'template', true);
-		
+										$the_query->the_post(); 
+										$meta_template = get_post_meta( get_the_ID(), 'template', true);
+										
 									?>
 
 									<?php get_template_part( 'content-templates/template', $meta_template ) ?>
