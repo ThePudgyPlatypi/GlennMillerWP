@@ -103,20 +103,137 @@ hr {
 
 .card-grid {
     .content-area {
-        
+        .grid-content {
+            text-align: center;
+
+            h1, h2, h3, h4, h5, h6 {
+                font-size: 3rem;
+                margin: 0 0 20px 0;
+                color: $secondary;
+            }
+
+            p { 
+               margin: 0 auto;
+               margin-bottom: 5rem;
+               max-width: 90%;
+               padding: 5px;
+
+               @include media-breakpoint-up(lg) {
+                    max-width: 50%;
+                }
+            }
+        }
+
+        .card {
+            background: $primary;
+        }
     }
 }
 
 .values-grid {
-    // width: 80%;
+    margin: 5rem 0;
+    max-width: 100%;
+
+    .container {
+        max-width: 75%;
+    
+        @include media-breakpoint-up(lg) {
+            max-width: 90%;
+        }
+    }
+
+    .card {
+        border: none;
+
+        .card-img-top {
+            max-width: 150px;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .card-body {
+            height: 100%;
+        }
+
+        .card-title {
+            color: white;
+            text-align: center;
+            font-size: 3rem;
+            white-space: nowrap;
+
+            @include media-breakpoint-up(lg) {
+                font-size: 2rem;
+            }
+        }
+
+        .card-text {
+            // background: lighten($primary, 5);
+            height: 100%;
+            padding: 10px;
+            position: relative;
+            border-top: 1px solid $secondary;
+            color: white;
+
+            &:after {
+                content: "";
+                position: absolute;
+                border-left: 1px solid $secondary;
+                left: 0;
+                top: 0;
+                bottom: 75%;
+            }
+        }
+    }
 }
 
 .services-grid {
+    max-width: 100%;
+    background: $aux-base;
+    padding: 2.5rem 5rem;
 
-}
+    .container {
+        max-width: 75%;
+    
+        @include media-breakpoint-up(lg) {
+            max-width: 90%;
+        }
+    }
 
-.card {
-    .card-body {
-        color: $primary;
+    .card {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        transition: transform 0.1s linear;
+
+        &:hover,
+        &:focus {
+            transform: scale(1.05);
+        }
+
+        .card-img-top {
+            position: relative;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 0;
+        }
+        
+        .card-body {
+            height: 100%;
+        }
+
+        .card-title {
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .card-text {
+
+        }
     }
 }

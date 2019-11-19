@@ -11,6 +11,7 @@ Custom post type "Contents" is created that takes three meta fields
             - use the excerpt to add a quote 
         - card-grid
             - This block should have correspondening card tagged blocks
+            - correspondening cards should include an order, card meta that is the slug of the card grid post, and template that is the name of the card template
         - text-block
         - image-description-left and image-description-right
 

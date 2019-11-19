@@ -1,14 +1,18 @@
 
 
-<div class="card col-sm-12 col-md-6 col-lg-3">
+<div class="card col-sm-12 col-lg-4">
 
-    <?php the_post_thumbnail('post-thumbnail', ['class' => 'card-img-top']); ?>
+    <?php if( !has_post_thumbnail() ) { ?>
+        <img src="<?php echo get_template_directory_uri(); ?>/images/logo-square.png" class="card-img-top" alt="Glenn Miller Associates Logo">
+    <?php } else {
+        the_post_thumbnail('post-thumbnail', ['class' => 'card-img-top']); 
+    } ?>
 
     <div class="card-body">
         <h5 class="card-title"><?php the_title();?></h5>
-        <p class="card-text">
+        <div class="card-text">
             <?php the_content(); ?>
-        </p>
+        </div>
     </div>
 
 </div>
