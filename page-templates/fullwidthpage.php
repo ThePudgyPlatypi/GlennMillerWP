@@ -25,7 +25,7 @@ set_query_var( 'container', $container );
 	<?php 
 	// this would be any content that is not on the static home page
 		
-		if ( !is_front_page() ) {
+		if ( !is_front_page() && !is_page( 'Contact' ) ) {
 			while ( have_posts() ) : the_post(); ?>
 				<div class="container-fluid" id="content">
 					<div class="row">

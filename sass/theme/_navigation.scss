@@ -3,15 +3,110 @@
 }
 
 #wrapper-navbar {
-    background-color: initial;
     position: fixed;
-    top: 0;
-    z-index: 10;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    @include media-breakpoint-up(md) {
+        top: 0;
+        bottom: initial;
+        left: initial;
+        right: initial;
+        background-color: initial;
+    }
+
+    .navbar {
+        background: initial;
+        padding: 0;
+
+        @include media-breakpoint-up(md) {
+            padding: .5rem 1rem;
+        }
+    }
+
+    .navbar-toggler {
+        margin: 0 auto;
+        margin-bottom: 10px;
+        background: black;
+
+        .navbar-toggler-icon {
+            width: 2em;
+            height: 2em;
+        }
+
+        @include media-breakpoint-up(md) {
+            // margin: initial;
+        }
+
+        & ~ #navbarNavDropdown {
+            background: black;
+            width: 100%;
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+
+            @include media-breakpoint-up(md) {
+                background: initial;
+            }
+        }
+    }
 }
 
-.img-fluid {
+.navbar-brand {
     display: none;
+
     @include media-breakpoint-up(md) {
         display: inline;
+    }
+}
+
+#main-menu {
+    padding-bottom: 30px;
+    padding-top: 30px;
+    
+
+    .menu-item {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        text-align: center;
+
+        @include media-breakpoint-up(md) {
+            text-align: left;
+        }
+
+        a.nav-link {
+            color: gray("600");
+        }
+
+        &:after {
+            content: "";
+            text-align: left;
+            left: 0;
+            position: absolute;
+            width: 0;
+            height: 4px;
+            background: $secondary;
+            opacity: 0;
+            transition: all 0.4s;
+        }
+
+        &:hover:after,
+        &:focus:after {
+            width: 100%; 
+            opacity: 1;
+        }
+
+        &.current_page_item:after {
+            opacity: 1;
+            width: 50%;
+            transform: translateX(50%);
+
+            @include media-breakpoint-up(md) {
+                width: 100%; 
+                transform: initial;
+            }
+        }
     }
 }
