@@ -1,0 +1,29 @@
+#wrapper-footer-full {
+    background: lighten(black, 5);
+    color: $white;
+
+    a {
+        color: $secondary;
+    }
+
+    .footer-widget:last-child {
+        text-align: right;
+
+        ul {
+            li {
+                list-style: none;
+            }
+        }
+    }
+}
+
+#wrapper-footer {
+    text-align: center;
+    background: lighten(black, 5);
+    
+    .site-info {
+        a {
+            color: $secondary;
+        }
+    }
+}

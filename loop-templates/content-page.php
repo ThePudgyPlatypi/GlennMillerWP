@@ -11,18 +11,9 @@ defined( 'ABSPATH' ) || exit;
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-	<?php if ( !is_front_page() ) { ?>
-		<header class="entry-header">
-
-			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-
-		</header><!-- .entry-header -->
-	<?php } ?>
-
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
-
 	<div class="entry-content">
 
+		<!-- add class based on whether or not there is an image in the content so I can remove the padding, or find some way to force it down with an after or something  -->
 		<?php the_content(); ?>
 
 		<?php

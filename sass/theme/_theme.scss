@@ -42,42 +42,77 @@ hr {
 // Template blocks
 .full-width-image {
     width: 100%;
-    height: 50vh;
+    height: 35vh;
     @include bottom-border;
+
+    @include media-breakpoint-up(md) {
+        height: 50vh;
+    }
+
+    @include media-breakpoint-up(xl) {
+
+    }
 
     .content-area {
         width: 100%;
-        height: calc(50vh - 8px);
+        height: calc(35vh - 8px);
         position: relative;
         @include pixel-overlay();
+
+        @include media-breakpoint-up(md) {
+            height: calc(50vh - 8px);
+        }
+
+        @include media-breakpoint-up(xl) {
+
+        }
        
         img {
             width: 100%;
-            height: calc(50vh - 8px);
+            height: calc(35vh - 8px);
             object-fit: cover;
             object-position: center;
+
+            @include media-breakpoint-up(md) {
+                height: calc(50vh - 8px);
+            }
+
+            @include media-breakpoint-up(xl) {
+
+            }
         }
 
         .image-excerpt {
             position: absolute;
             text-align: right;
-            
             right: 0;
             bottom: 0;
-            font-size: 2rem;
+            font-size: 1rem;
             font-family: 'Cinzel', serif;
             font-weight: bold;
             z-index: 3;
-            width: 40%;
-            margin: 0 50px 50px 0;
+            width: 75%;
+            margin: 0 10px 50px 0;
             padding: 0 10px 0 10px;
-            line-height: 2.6rem;
+            line-height: 1.3rem;
+
+                @include media-breakpoint-up(md) {
+                    font-size: 1.5rem;
+                    line-height: 2.0rem;
+                    width: 40%;
+                    margin: 0 50px 50px 0;
+                }
+
+                @include media-breakpoint-up(xl) {
+                    font-size: 2rem;
+                    line-height: 2.6rem;
+                }
 
             // styling excerpt
             p:first-child {
                 display: inline;
-                background-color: white;
-                color: $primary;
+                background-color: $primary;
+                color: $white;
                 hyphens: none;
             }
 
@@ -90,12 +125,84 @@ hr {
 }
 
 .text-block {
-    height: 25vh;
+    min-height: 25vh;
+    margin: 50px 0;
+
+    @include media-breakpoint-up(md) {
+        margin: 0;
+    }
 
     .content-area {
-        height: 100%;
+        min-height: 25vh;
+        width: 100%;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+
+.about-card-wrapper {
+    @include bottom-border;
+}
+
+.about-card {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+
+    .about-image {
+        text-align: center;
+        margin-bottom: 50px;
+
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 0;
+        }
+    }
+
+    .about-content {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+
+        p {
+            padding-left: 30px;
+            padding-top: 30px;
+            max-width: 100%;
+            @include paragraph-border($secondary);
+        }
+    }
+}
+
+.contact-wrapper {
+    background: $white;
+    width: 100%;
+    min-height: 100vh;
+    color: $primary;
+    padding: 50px 0;
+
+    .content-area {
+        h2 {
+            text-align: center;
+        }
+
+        input, textarea {
+            border-radius: 0;
+            color: $white;
+            background-color: $primary;
+        }
+
+        input[type=submit] {
+            background-color: $secondary;
+            width: 50%;
+            margin-left: 50;
+            transform: translateX(50%);
+
+            &:hover {
+                background-color: $secondary-accent;
+            }
+        }
     }
 }
 
@@ -135,7 +242,11 @@ hr {
     max-width: 100%;
 
     .container {
-        max-width: 75%;
+        max-width: 90%;
+
+        @include media-breakpoint-up(md) {
+            max-width: 65%;
+        }
     
         @include media-breakpoint-up(lg) {
             max-width: 90%;
@@ -167,21 +278,10 @@ hr {
         }
 
         .card-text {
-            // background: lighten($primary, 5);
             height: 100%;
             padding: 10px;
-            position: relative;
-            border-top: 1px solid $secondary;
             color: white;
-
-            &:after {
-                content: "";
-                position: absolute;
-                border-left: 1px solid $secondary;
-                left: 0;
-                top: 0;
-                bottom: 75%;
-            }
+            @include paragraph-border($secondary);
         }
     }
 }
@@ -189,10 +289,14 @@ hr {
 .services-grid {
     max-width: 100%;
     background: $aux-base;
-    padding: 2.5rem 5rem;
+    padding: 2.5rem 0;
+
+    @include media-breakpoint-up(md) {
+        padding: 2.5rem 5rem;
+    }
 
     .container {
-        max-width: 75%;
+        max-width: 100%;
     
         @include media-breakpoint-up(lg) {
             max-width: 90%;
@@ -231,8 +335,103 @@ hr {
             text-align: center;
             font-size: 1.5rem;
         }
+    }
+}
 
-        .card-text {
+
+//about page 
+
+.image-header {
+    padding: 0;
+    margin-top: -30px;
+    height: calc(25vh-8px);
+    @include bottom-border;
+
+    .image-overlay {
+        position: relative;
+        @include pixel-overlay;
+
+        &:after {
+            content: "";
+            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffc03b+0,3e3e3e+35,3e3e3e+35,05307a+100 */
+            background: #ffc03b; /* Old browsers */
+            background: -moz-linear-gradient(-45deg,  #ffc03b 0%, #3e3e3e 35%, #3e3e3e 35%, #05307a 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(-45deg,  #ffc03b 0%,#3e3e3e 35%,#3e3e3e 35%,#05307a 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(135deg,  #ffc03b 0%,#3e3e3e 35%,#3e3e3e 35%,#05307a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc03b', endColorstr='#05307a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+            display: block;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.15;
+        }
+    }
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        object-position: center;
+        height: 25vh;
+    }
+}
+
+.entry-header {
+    position: absolute;
+    z-index: 4;
+    width: 100%;
+
+    h1 {
+        text-align: center;
+    }
+    
+}
+
+.content-area {
+    .entry-content {
+        position: relative;
+        margin: 0 auto;
+        padding-top: 150px;
+
+        @include media-breakpoint-up(md) {
+            max-width: 1400px;
+        }
+
+        .center-circle {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            transform: translateY(-50%);
+            z-index: 10;
+        
+            img {
+                border-radius: 100%;
+                border: 8px solid $secondary;
+            }
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: $secondary;
+        }
+
+        address {
+            display: flex;
+            justify-content: center;
+            
+            a {
+                color: $secondary;
+            }
+        }
+
+        p {
+            &:first-child {
+                margin-top: 30px;
+            }
 
         }
     }

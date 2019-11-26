@@ -1,6 +1,10 @@
 // Static hero
 #wrapper-hero {
-    height: 70vh;
+    height: calc(100vh - 120px);
+
+    @include media-breakpoint-up(md) {
+        height: 70vh;
+    }
 }
 
 #wrapper-static-hero {
@@ -25,11 +29,28 @@
             h1.site-title {
                 font-size: 3rem;
                 color: $secondary;
+                text-align: center;
+                font-size: 1.8rem;
+
+                @include media-breakpoint-up(md) {
+                    font-size: 3rem;
+                }
+
+                @include media-breakpoint-up(xl) {
+                    font-size: 5rem;
+                }
             }
 
             span.site-tagline {
-                font-size: 1.75rem;
-                // margin-bottom: 30px;
+                font-size: 1.25rem;
+               
+                @include media-breakpoint-up(md) {
+                    font-size: 2rem;
+                }
+
+                @include media-breakpoint-up(xl) {
+                    font-size: 2.5rem;
+                }
             }
 
             address.bp-contact-card {

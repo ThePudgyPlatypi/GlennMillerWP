@@ -89,3 +89,18 @@
         opacity: 0.3;
     }
 }
+
+@mixin paragraph-border($color) {
+    border-top: 1px solid $color;
+    position: relative;
+
+    &:after {
+        content: "";
+        position: absolute;
+        border-left: 1px solid $color;
+        left: 0;
+        top: 0;
+        bottom: 75%;
+    }
+
+}

@@ -27,8 +27,19 @@ set_query_var( 'container', $container );
 		
 		if ( !is_front_page() ) {
 			while ( have_posts() ) : the_post(); ?>
-				<div class="<?php echo esc_attr( $container ); ?>" id="content">
+				<div class="container-fluid" id="content">
 					<div class="row">
+
+						<div class="col-md-12 image-header">
+
+							<!-- no header -->
+
+							<div class="image-overlay">
+								<?php echo get_the_post_thumbnail( $post->ID, 'full' ); ?>
+							</div>
+
+						</div>
+
 						<div class="col-md-12 content-area" id="primary">
 							<main class="site-main" id="main" role="main">
 

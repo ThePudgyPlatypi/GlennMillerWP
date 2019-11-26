@@ -15,7 +15,7 @@
                 edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); 
             ?>
 
-    </div><!-- #primary -->
+    </div><!-- content-area end -->
 
-</div><!-- .row end -->
+</div><!-- full-width-image end -->
 
