@@ -1,5 +1,7 @@
 .admin-bar #wrapper-navbar {
-    top: 32px;
+    @include media-breakpoint-up(md) {
+        top: 32px;
+    }
 }
 
 #wrapper-navbar {
@@ -78,6 +80,7 @@
 
         a.nav-link {
             color: gray("600");
+            font-weight: bold;
         }
 
         &:after {

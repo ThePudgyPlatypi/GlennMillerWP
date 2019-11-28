@@ -14,7 +14,7 @@ body {
     }
 
     &.home .wrapper#full-width-page-wrapper {
-        padding: 30px 0;
+        padding: 30px 0 0 0;
     }
     
 }
@@ -343,6 +343,12 @@ hr {
             color: white;
             text-align: center;
             font-size: 1.5rem;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
     }
 }
@@ -431,15 +437,25 @@ hr {
         address {
             display: flex;
             justify-content: center;
+            flex-direction: column;
+            text-align: center;
             
+            @include media-breakpoint-up(md) {
+                flex-direction: row;
+            }
+
+
             a {
                 color: $secondary;
             }
         }
 
         p {
+            padding: 10px 30px;
+
             &:first-child {
                 margin-top: 30px;
+                
             }
 
         }
