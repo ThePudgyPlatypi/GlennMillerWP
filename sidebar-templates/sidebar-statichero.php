@@ -25,6 +25,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 					<!-- Could add another meta check to see if a page wants the header info -->
 					<?php if ( is_front_page() ) { ?>
 						<div id="webpage-information">
+							<img class="main-logo" src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-square.png" alt="Glenn Miller Associates, LLC Logo">
 							<?php echo "<h1 class='site-title'>".get_bloginfo()."</h1>"; ?>
 							<hr>
 							<?php echo "<span class='site-tagline'>".get_bloginfo( 'description' )."</span>";

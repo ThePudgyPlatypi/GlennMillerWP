@@ -37,6 +37,14 @@ hr {
         transform: translateX(-50%);
         margin-top: -2.5px;
     }
+
+    &.black {
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+
+        &:before {
+            @include triangle(down, black, 5px, $equal: true);
+        }
+    }
 }
 
 // Paragraph styles
@@ -189,7 +197,9 @@ hr {
     width: 100%;
     min-height: 100vh;
     color: $primary;
-    padding: 50px 0;
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
 
     .content-area {
         h2 {
@@ -415,6 +425,7 @@ hr {
 
         .center-circle {
             position: absolute;
+            
             top: 0;
             width: 100%;
             display: flex;
@@ -425,6 +436,7 @@ hr {
             img {
                 border-radius: 100%;
                 border: 8px solid $secondary;
+                background-color: $white;
             }
         }
 
@@ -456,6 +468,13 @@ hr {
             &:first-child {
                 margin-top: 30px;
                 
+            }
+
+            &.image-p {
+                img {
+                    float: left;
+                    margin-right: 20px;
+                }
             }
 
         }

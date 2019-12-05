@@ -3,8 +3,13 @@
     height: calc(100vh - 120px);
 
     @include media-breakpoint-up(md) {
-        height: 70vh;
+        height: 75vh;
     }
+}
+
+.main-logo {
+    max-height: 225px;
+    width: auto;
 }
 
 #wrapper-static-hero {
@@ -27,36 +32,39 @@
             color: $white;
 
             h1.site-title {
-                font-size: 3rem;
+                font-size: 1.25rem;
                 color: $secondary;
                 text-align: center;
                 font-size: 1.8rem;
+                display: flex;
+                z-index: 1;
 
-                @include media-breakpoint-up(md) {
-                    font-size: 3rem;
-                }
-
-                @include media-breakpoint-up(xl) {
-                    font-size: 5rem;
-                }
-            }
-
-            span.site-tagline {
-                font-size: 1.25rem;
-               
                 @include media-breakpoint-up(md) {
                     font-size: 2rem;
                 }
 
                 @include media-breakpoint-up(xl) {
-                    font-size: 2.5rem;
+                    font-size: 3rem;
+                }
+            }
+
+            span.site-tagline {
+                font-size: 1rem;
+               
+                @include media-breakpoint-up(md) {
+                    font-size: 1rem;
+                }
+
+                @include media-breakpoint-up(xl) {
+                    font-size: 1.5rem;
                 }
             }
 
             address.bp-contact-card {
                 display: flex;
                 font-size: 1.25rem;
-                margin-top: -1rem;;
+                margin-top: -1rem;
+                margin-bottom: 0;
 
                 .bp-phone::before {
                     display: none;
@@ -68,10 +76,13 @@
                 }
             }   
 
-            .btn a {
-                color: $secondary;
+            .btn {
+                a {
+                    color: $secondary;
+                }
 
-                &:hover {
+                &:hover a,
+                &:focus a {
                     color: $primary;
                     text-decoration: none;
                 }
