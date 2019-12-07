@@ -1,5 +1,5 @@
 <div id="content post-<?php the_ID(); ?>" class="<?php echo esc_attr( $container ); ?>">
-    <div  <?php post_class('row text-block'); ?>>
+    <div  <?php post_class('row text-block '); ?>>
         <div class="content-area col-sm-12" id="primary">
 
                 <?php 

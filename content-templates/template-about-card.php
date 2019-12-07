@@ -3,11 +3,11 @@
 
         <div class="content-area row">
                 
-                <div class="col-lg-3 col-sm-12 about-image">
+                <div class="col-lg-3 col-sm-12 about-image animation-element slide-left">
                     <?php the_post_thumbnail('medium'); ?>
                 </div>
 
-                <div class="col-lg-9 col-sm-12 about-content">
+                <div class="col-lg-9 col-sm-12 about-content animation-element slide-right">
                     <?php the_content(); ?>
                     <?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
                 </div>

@@ -1,6 +1,6 @@
 
 
-<div class="card col-sm-12 col-lg-4">
+<div class="card col-sm-12 col-lg-4 animation-element slide-down">
 
     <?php if( !has_post_thumbnail() ) { ?>
         <img src="<?php echo get_template_directory_uri(); ?>/images/logo-square.png" class="card-img-top" alt="Glenn Miller Associates Logo">

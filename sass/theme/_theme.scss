@@ -4,6 +4,10 @@ html, body {
     width: 100%;
 }
 
+html {
+    visibility: hidden;
+}
+
 body {
     background-color: $primary-base;
     color: $gray-100;
@@ -189,6 +193,27 @@ hr {
             max-width: 100%;
             @include paragraph-border($secondary);
         }
+
+        .btn {
+            padding: 0;
+            max-width: 50%;
+
+            @include media-breakpoint-up(lg) {
+                max-width: 25%;
+            }
+
+            a {
+                color: $secondary;
+                padding: 5px 10px;
+                display: block;
+            }
+
+            &:hover a,
+            &:focus a {
+                color: $primary;
+                text-decoration: none;
+            }
+        }
     }
 }
 
@@ -347,6 +372,9 @@ hr {
         
         .card-body {
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .card-title {
@@ -355,10 +383,6 @@ hr {
             font-size: 1.5rem;
             padding: 0;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
         }
     }
 }
@@ -470,10 +494,31 @@ hr {
                 
             }
 
-            &.image-p {
+            &.image-p-left {
                 img {
-                    float: left;
-                    margin-right: 20px;
+                    display: block;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+
+                    @include media-breakpoint-up(md) {
+                        float: left;
+                        margin-right: 20px;
+                        margin-bottom: 3px;
+                    }
+                }
+            }
+
+            &.image-p-right {
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+
+                    @include media-breakpoint-up(md) {
+                        float: right;
+                        margin-left: 20px;
+                        margin-bottom: 3px;
+                    }
                 }
             }
 

@@ -32,19 +32,18 @@
             color: $white;
 
             h1.site-title {
-                font-size: 1.25rem;
+                font-size: 1.5rem;
                 color: $secondary;
                 text-align: center;
-                font-size: 1.8rem;
                 display: flex;
                 z-index: 1;
 
                 @include media-breakpoint-up(md) {
-                    font-size: 2rem;
+                    font-size: 3rem;
                 }
 
                 @include media-breakpoint-up(xl) {
-                    font-size: 3rem;
+                    font-size: 4rem;
                 }
             }
 
@@ -77,8 +76,12 @@
             }   
 
             .btn {
+                padding: 0;
+
                 a {
                     color: $secondary;
+                    padding: 5px 10px;
+                    display: block;
                 }
 
                 &:hover a,

@@ -31,7 +31,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 							<?php echo "<span class='site-tagline'>".get_bloginfo( 'description' )."</span>";
 							echo do_shortcode( "[contact-card show_name=0 show_address=0 show_get_directions=0 show_phone=1 show_contact=0 show_opening_hours=0 show_map=0]" ); ?>
 							<button type="button" class="btn btn-outline-secondary">
-								<a href="#contact">
+								<a href="#contact" class="scrollTo">
 									Let's Talk
 								</a>
 							</button>

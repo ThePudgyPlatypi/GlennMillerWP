@@ -7,7 +7,7 @@
                 the_post_thumbnail();
 
                 if( has_excerpt() ) { ?>
-                    <div class="image-excerpt">
+                    <div class="image-excerpt animation-element slide-left">
                         <?php the_excerpt(); ?>
                     </div>
                 <?php }
