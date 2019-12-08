@@ -48,7 +48,11 @@
         margin: 0 auto;
         margin-bottom: 10px;
         background: black;
-        // border-radius: 100%;
+        padding: 10px;
+
+        &:focus {
+            outline: none;
+        }
 
         .navbar-toggler-icon {
             width: 2em;

@@ -7099,23 +7099,52 @@ function scrollToY(scrollTargetY, speed, easing) {
 
 let scrollList = document.querySelectorAll(".scrollTo");
 
-for (let item of scrollList) {
-  item.addEventListener('click', function (e) {
+for (let i = 0; i < scrollList.length; i++) {
+  scrollList[i].addEventListener('click', function (e) {
     let elem = event.target || event.srcElement;
     let targetElemName = elem.getAttribute('href');
     let targetElem = document.querySelector(targetElemName);
     scrollToY(targetElem, 1500, 'easeInOutQuint');
   });
+}
+
+function msieversion() {
+  var ua = window.navigator.userAgent;
+  var msie = ua.indexOf("MSIE ");
+
+  if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) // If Internet Explorer, return version number
+    {
+      alert("This site has not been optimized for Internet Explorer 11 and below. Please open in Chrome, Firefox, Safari, or Edge.");
+      return true;
+    }
+
+  return false;
 } // stuff that needs jquery
 
 
 (function ($) {
+  msieversion();
   $("html").css({
     opacity: 0,
     visibility: "visible"
   }).animate({
     opacity: 1
-  }, 500); // Cache all animated elements
+  }, 750); // change mobile words menu to x
+
+  let menu = document.querySelector(".navbar-toggler");
+  let menuClasses = menu.classList;
+  menuClasses.add('collapsed');
+  menu.addEventListener('click', function (e) {
+    if (menuClasses.contains('collapsed')) {
+      $(".navbar-toggler span").text("close");
+      $(".navbar-toggler").css("background", "#dc3545");
+      $(".navbar-toggler").css("color", "black");
+    } else {
+      $(".navbar-toggler span").text("menu");
+      $(".navbar-toggler").css("background", "black");
+      $(".navbar-toggler").css("color", "rgba(255,255,255,.5)");
+    }
+  }); // Cache all animated elements
 
   var $animation_elements = $('.animation-element'); // var $animation_elements_quick = $('.animation-element-quick');
 

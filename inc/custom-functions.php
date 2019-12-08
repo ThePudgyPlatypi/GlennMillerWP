@@ -46,7 +46,4 @@ function post_meta_default_column_value($value, $post_id) {
 /**
  * Change the excerpt more string
  */
-function my_theme_excerpt_more( $more ) {
-    return '';
-}
-add_filter( 'excerpt_more', 'my_theme_excerpt_more' );
+add_filter( 'excerpt_more', '__return_empty_string' );

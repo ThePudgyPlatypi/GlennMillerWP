@@ -6,9 +6,11 @@
             <?php 
                 the_post_thumbnail();
 
-                if( has_excerpt() ) { ?>
+                $thecontent = get_the_content();
+
+                if(!empty($thecontent)) { ?>
                     <div class="image-excerpt animation-element slide-left">
-                        <?php the_excerpt(); ?>
+                        <?php the_content(); ?>
                     </div>
                 <?php }
 
