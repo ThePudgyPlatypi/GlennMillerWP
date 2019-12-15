@@ -212,6 +212,12 @@ hr {
             &:focus a {
                 color: $primary;
                 text-decoration: none;
+
+                @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                    &:visited a {
+                        color: $secondary;
+                    }
+                }
             }
         }
     }
@@ -398,6 +404,7 @@ hr {
 
     .image-overlay {
         position: relative;
+        height: 25vh;
         @include pixel-overlay;
 
         &:after {
@@ -417,6 +424,8 @@ hr {
             opacity: 0.15;
         }
     }
+
+    
 
     img {
         object-fit: cover;
@@ -456,6 +465,10 @@ hr {
             justify-content: center;
             transform: translateY(-50%);
             z-index: 10;
+
+            @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                display: block;
+            }
         
             img {
                 border-radius: 100%;

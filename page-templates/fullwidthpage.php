@@ -35,7 +35,7 @@ set_query_var( 'container', $container );
 							<!-- no header -->
 
 							<div class="image-overlay">
-								<?php echo get_the_post_thumbnail( $post->ID, 'full' ); ?>
+								<?php echo get_the_post_thumbnail( $post->ID, 'full', array('class' => 'object-fit') ); ?>
 							</div>
 
 						</div>

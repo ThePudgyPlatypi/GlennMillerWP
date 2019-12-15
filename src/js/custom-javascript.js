@@ -84,13 +84,11 @@ for(let i = 0; i < scrollList.length; i++) {
 }
 
 function msieversion() {
-
     var ua = window.navigator.userAgent;
     var msie = ua.indexOf("MSIE ");
 
     if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))  // If Internet Explorer, return version number
     {
-        alert("This site has not been optimized for Internet Explorer 11 and below. Please open in Chrome, Firefox, Safari, or Edge.");
         return true;
     }
 
@@ -99,9 +97,28 @@ function msieversion() {
 
 // stuff that needs jquery
 (function($) {
-    msieversion();
     $("html").css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 750);
+
+    // IE fixes
+    if ( msieversion() || /Edge/.test(navigator.userAgent)) {
+        $('img.object-fit').each(function(){
+            
+            var t = $(this),
+                s = 'url(' + t.attr('src') + ')',
+                p = t.parent(),
+                d = $('<div></div>');
     
+            p.prepend(d);
+            d.css({
+                'height'                : '100%',
+                'background-size'       : 'cover',
+                'background-repeat'     : 'no-repeat',
+                'background-position'   : '50% 20%',
+                'background-image'      : s
+            });
+            t.hide();
+        });
+    }
 
     // change mobile words menu to x
     let menu = document.querySelector(".navbar-toggler");

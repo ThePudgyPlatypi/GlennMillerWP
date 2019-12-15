@@ -4,7 +4,7 @@
     <div class="content-area">
 
             <?php 
-                the_post_thumbnail();
+                the_post_thumbnail('full',  array('class' => 'object-fit') );
 
                 $thecontent = get_the_content();
 

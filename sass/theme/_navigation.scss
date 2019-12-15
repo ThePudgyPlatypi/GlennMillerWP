@@ -19,6 +19,13 @@
         right: initial;
         background-color: initial;
         min-width: 75%;
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            /* IE10+ CSS */
+            bottom: auto;
+            right: auto;
+            background-color: none;
+         }
     }
 
     @include media-breakpoint-up(xl) {
@@ -71,6 +78,10 @@
 
             @include media-breakpoint-up(md) {
                 background: initial;
+
+                @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                    background: none;
+                }
             }
         }
     }
@@ -85,6 +96,9 @@
         padding: 0;
         margin: 0;
         left: -50px;
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            bottom: -50%;
+        }
     }
 
     img {
@@ -143,6 +157,10 @@
             @include media-breakpoint-up(md) {
                 width: 100%; 
                 transform: initial;
+
+                @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                    transform: none;
+                }
             }
         }
     }
